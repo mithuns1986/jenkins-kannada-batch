@@ -1,0 +1,24 @@
+## Installing Jenkins on Redhat
+
+#shebang Line
+#!/bin/bash
+
+#Download the jenkins Repo
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+#Import the Jenkins key
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+#Upgrade the OS
+sudo yum upgrade
+# Add required dependencies for the jenkins package
+sudo yum install fontconfig java-17-openjdk
+#Install Jenkins
+sudo yum install jenkins
+#Reload the configuration of the system
+sudo systemctl daemon-reload
+
+#Start the jenkins server 
+sudo systemctl start jenki
+#Check the status of the Jenkins
+
+sudo systemctl status jenkins
